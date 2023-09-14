@@ -1,13 +1,369 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&family=PT+Serif:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Quicksand:wght@300;400;500;600;700&family=Righteous&family=Rubik:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Quicksand:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .placeholder-style::placeholder {
+    padding: 5px 12px;
+    margin: 5px;
+  }
+
+  .admitere {
+    background: #8344ff;
+  }
+
+  .bacalaureat {
+    background: #ec615b;
+  }
+
+  .olimpiada {
+    background: #0CB346;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 12px;
+  /* display: none; */
+  background-color: #F5F5F5;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  /* border-radius: 10px; */
+  background-color: white;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  /* border-radius: 10px; */
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  background-color: #a0aec0;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #a0aec0;
+}
+
+li.active > a {
+  color: #460fb3;
+}
+
+li > a:hover {
+  color: #460fb3;
+}
+
+.lang-menu {
+  width: 100px;
+  text-align: right;
+  font-weight: bold;
+  margin-top: 25px;
+  position: relative;
+}
+.lang-menu .selected-lang {
+  display: flex;   
+  justify-content: space-between;
+  line-height: 2;
+  cursor: pointer;
+}
+
+.lang-menu ul {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  display: none;
+  background-color: #fff;
+  border: 1px solid #f8f8f8;
+  position: absolute;
+  top: 45px;
+  right: 0px;
+  width: 125px;
+  border-radius: 5px;
+  box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+}
+
+
+.lang-menu ul li {
+  list-style: none;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+}
+
+.lang-menu ul li a {
+  text-decoration: none;
+  width: 125px;
+  padding: 5px 10px;
+  display: block;
+}
+
+.lang-menu ul li:hover {
+  background-color: #f2f2f2;
+}
+
+.lang-menu ul li a:before {
+  content: '';
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  margin-right: 10px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.lang-menu:hover ul {
+  display: block;
+}
+
+/* Markdown Styles */
+/* Headers */
+.markdown p {
+  font-size: 18px;
+}
+
+
+
+.markdown h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.markdown h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.markdown h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 8px;
+}
+
+.markdown h4 {
+  font-size: 18px;
+  /* font-weight: bold; */
+  margin-top: 15px;
+  margin-bottom: 8px;
+}
+
+.markdown h5 {
+  font-size: 0.875rem;
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 8px;
+}
+
+.markdown h6 {
+  font-size: 0.75rem;
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 8px;
+}
+
+/* Code */
+.markdown pre {
+  margin: 16px 0px;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-size: 16px;
+}
+
+.markdown code {
+  font-family: monospace;
+  padding: 2px 4px;
+  /* white-space: pre; */
+  /* font-weight: 300; */
+  /* padding: 0.2rem 0.3rem; */
+  border-radius: 3px;
+}
+
+/* Inline code */
+.markdown p > code {
+  font-family: monospace;
+  background-color: #f3f3f3;
+  padding: 0.2rem 0.3rem;
+
+  border-radius: 3px;
+}
+
+.markdown li > code {
+  font-family: monospace;
+  background-color: #f3f3f3;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+.markdown blockquote {
+  margin: 0;
+  /* padding-left: 1.4rem; */
+  position: relative;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.markdown blockquote > p {
+  margin-left: 30px;
+}
+
+.markdown blockquote::before {
+  content: '';
+  position: absolute;
+  /* left: 0; */
+  width: 4px;
+  height: 100%;
+  background: rgb(211, 19, 19);
+  border-radius: 2px / 4px;
+}
+
+.markdown img {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  /* display: inline-block;
+  width: 49%; */
+}
+
+/* .math-display {
+	background-color: #1D1F21;
+  color: red;
+	padding: 1rem;
+	border-radius: 0.25rem;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+} */
+
+/* Strong (bold) */
+.markdown strong {
+  font-weight: bold;
+}
+
+/* Underline */
+.markdown u {
+  text-decoration: underline;
+}
+
+.markdown ul,
+.markdown li {
+  font-size: 18px;
+}
+
+.markdown ul {
+  margin-top: 12px
+}
+
+.markdown ul > li {
+  list-style-type: none;
+  padding-left: 3.2rem;
+  padding-left: 4ch;
+  text-indent: -3.2rem;
+  text-indent: -4ch;
+}
+.markdown ul > li:before {
+  margin-left: 16px;
+  content: "-   ";
+}
+.markdown ul > li .markdown p {
+  text-indent: 0;
+  display: inline;
+}
+
+.markdown hr {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-self: stretch;
+  margin-top: 1rem/* 16px */;
+  margin-bottom: 1rem/* 16px */;
+  height: 1rem/* 16px */;
+  white-space: nowrap;
+  background-color: hsl(var(--bc) / var(--tw-bg-opacity));
+  --tw-bg-opacity: 0.1;
+  height: 0.125rem;
+  width: 100%;
+}
+
+.markdown a {
+  color: rgb(104 117 245 / var(--tw-bg-opacity));
+}
+
+.toc-navigation {
+  /* background-color: red; */
+  width: 16rem;
+  min-width: 16rem;
+  padding-left: auto;
+  padding-top: 16px;
+  /* margin: 8px; */
+  align-self: flex-start;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 48px;
+  max-height: calc(100vh - 70px);
+  overflow: auto;
+}
+
+.toc ul {
+  padding-left: 1.5rem;
+  /* list-style-type: disc; */
+}
+
+.toc > li {
+  padding-top: 20px;
+}
+
+.toc > li:nth-child(1) {
+  padding-top: 0px;
+}
+
+.toc > li > a,
+.toc > ul > li > a,
+.toc > ul > ul > li > a,
+.toc > ul > ul > ul > li > a,
+.toc > ul > ul > ul > ul > li > a,
+.toc > ul > ul > ul > ul > ul > li > a {
+    color: #565656;
+  text-decoration: none;
+}
+
+.toc > li > a:hover,
+.toc > ul > li > a:hover,
+.toc > ul > ul > li > a:hover,
+.toc > ul > ul > ul > li > a:hover,
+.toc > ul > ul > ul > ul > li > a:hover,
+.toc > ul > ul > ul > ul > ul > li > a:hover {
+  color: #7B74FF;
+}
+
+.circle-progress {
+  position: fixed;
+  bottom: 20px; /* Adjust the bottom distance as needed */
+  right: 20px; /* Adjust the right distance as needed */
+  background-color: #007BFF; /* Background color for the div */
+  color: #fff; /* Text color for the percentage */
+  border-radius: 50%; /* Create a circular shape */
+  padding: 10px; /* Add padding for better visibility */
+  width: 60px; /* Adjust the width as needed */
+  height: 60px; /* Adjust the height as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.radial-progress.show {
+  opacity: 1; /* Show the div with fade-in animation */
 }
