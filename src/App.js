@@ -19,7 +19,7 @@ function App() {
   );
 
   const PUBLIC_URL = 'https://codewiki-blog.onrender.com';
-  const LOCAL_URL = 'http://localhost:3000'
+  const LOCAL_URL = 'http://localhost:1337'
 
   let { loading, data, error } = useFetch(
     `${PUBLIC_URL}/api/blogs?populate=*`
@@ -36,7 +36,7 @@ function App() {
   if (error) return <p> Error! </p>;
   if (!data && !storedData) return null;
 
-  console.log(storedData);
+  console.log(storedData.data);
 
   return (
     <Routes>

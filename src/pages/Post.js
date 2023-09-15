@@ -83,7 +83,7 @@ function Post({ blogs }) {
     blog = blogs.data.find((blog) => blog.attributes.slug === slug);
 
   return (
-    <div className="bg-white font-nunito">
+    <div className="bg-white font-dmsans">
       {/* NAVBAR */}
       <div className="bg-gradient-to-br from-[#102a4a] to-[#342a84] mb-16 font-poppins">
         <Navbar />
