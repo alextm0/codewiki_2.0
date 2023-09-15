@@ -20,42 +20,44 @@ function App() {
     JSON.parse(localStorage.getItem("strapiData")) || null
   );
 
-  const PUBLIC_URL = 'https://codewiki-blog.onrender.com';
-  const LOCAL_URL = 'http://localhost:1337'
+  // const PUBLIC_URL = 'https://codewiki-blog.onrender.com';
+  // const LOCAL_URL = 'http://localhost:1337'
 
-  let { loading, data, error } = useFetch(
-    `${PUBLIC_URL}/api/blogs?populate=*`
-  );
+  // let { loading, data, error } = useFetch(
+  //   `${PUBLIC_URL}/api/blogs?populate=*`
+  // );
 
-  useEffect(() => {
-    if (data) {
-      localStorage.setItem("strapiData", JSON.stringify(data));
-      setStoredData(data);
-    }
-  }, [data]);
+  // useEffect(() => {
+  //   if (data) {
+  //     localStorage.setItem("strapiData", JSON.stringify(data));
+  //     setStoredData(data);
+  //   }
+  // }, [data]);
 
-  if (loading && !storedData) return <p> Loading </p>;
-  if (error) return <p> Error! </p>;
-  if (!data && !storedData) return null;
+  // if (loading && !storedData) return <p> Loading </p>;
+  // if (error) return <p> Error! </p>;
+  // if (!data && !storedData) return null;
 
-  if(storedData.data)
-    console.log(storedData.data);
+  // if(storedData.data)
+  //   console.log(storedData.data);
+
+  // blogs={storedData ? storedData : ""} 
 
   return (
     <Routes>
       <Route
         path="/"
-        element={<MainPage blogs={storedData ? storedData : ""} />}
+        element={<MainPage/>}
       />
       <Route
         path="/codewiki_2.0"
-        element={<MainPage blogs={storedData ? storedData : ""} />}
+        element={<MainPage />}
       />
 
-      <Route
+      {/* <Route
         path="/codewiki_2.0/articles"
         element={<ArticlePage blogs={storedData ? storedData : ""} />}
-      />
+      /> */}
       <Route path="/codewiki_2.0/admitere" element={<AdmiterePage />} />
       <Route path="/codewiki_2.0/bacalaureat" element={<BacalaureatPage />} />
       <Route path="/codewiki_2.0/olimpiada" element={<OlimpiadaPage />} />
@@ -69,11 +71,11 @@ function App() {
       <Route path="/codewiki_2.0/admitere/:slug" element={<ProblemSetPage />} />
       <Route path="/codewiki_2.0/olimpiada/:slug" element={<ProblemSetPage />} />
 
-      <Route
+      {/* <Route
         path="/codewiki_2.0/blog/:slug"
         element={<Post blogs={storedData ? storedData : ""} />}
         exact
-      />
+      /> */}
   </Routes>
   );
 }
