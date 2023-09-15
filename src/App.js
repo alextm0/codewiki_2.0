@@ -7,10 +7,9 @@ import "aos/dist/aos.css";
 import { MainPage, ErrorPage, ArticlePage, AdmiterePage, BacalaureatPage, OlimpiadaPage, Post, StartLearningPage, ProblemSetPage } from './pages'
 
 import useFetch from "./hooks/useFetch";
+import useFetchDataAPI from './hooks/useFetchDataAPI'
 
 function App() {
-  console.log("THIS PROJECT");
-
   useEffect(() => {
     AOS.init({ once: true });
     AOS.refresh();
@@ -20,44 +19,43 @@ function App() {
     JSON.parse(localStorage.getItem("strapiData")) || null
   );
 
-  // const PUBLIC_URL = 'https://codewiki-blog.onrender.com';
-  // const LOCAL_URL = 'http://localhost:1337'
+  const PUBLIC_URL = 'https://codewiki-blog.onrender.com/api/blogs';
+  const LOCAL_URL = 'http://localhost:1337'
 
   // let { loading, data, error } = useFetch(
   //   `${PUBLIC_URL}/api/blogs?populate=*`
   // );
 
-  // useEffect(() => {
-  //   if (data) {
-  //     localStorage.setItem("strapiData", JSON.stringify(data));
-  //     setStoredData(data);
-  //   }
-  // }, [data]);
+  let {loading,data,error} = useFetchDataAPI(PUBLIC_URL)
 
-  // if (loading && !storedData) return <p> Loading </p>;
-  // if (error) return <p> Error! </p>;
-  // if (!data && !storedData) return null;
+  useEffect(() => {
+    if (data) {
+      localStorage.setItem("strapiData", JSON.stringify(data));
+      setStoredData(data);
+    }
+  }, [data]);
 
-  // if(storedData.data)
-  //   console.log(storedData.data);
+  if (loading && !storedData) return <p> Loading </p>;
+  if (error) return <p> Error! </p>;
+  if (!data && !storedData) return null;
 
-  // blogs={storedData ? storedData : ""} 
+  console.log(storedData.data);
 
   return (
     <Routes>
       <Route
         path="/"
-        element={<MainPage/>}
+        element={<MainPage blogs={storedData ? storedData : ""}/>}
       />
       <Route
         path="/codewiki_2.0"
-        element={<MainPage />}
+        element={<MainPage blogs={storedData ? storedData : ""}/>}
       />
 
-      {/* <Route
+      <Route
         path="/codewiki_2.0/articles"
         element={<ArticlePage blogs={storedData ? storedData : ""} />}
-      /> */}
+      />
       <Route path="/codewiki_2.0/admitere" element={<AdmiterePage />} />
       <Route path="/codewiki_2.0/bacalaureat" element={<BacalaureatPage />} />
       <Route path="/codewiki_2.0/olimpiada" element={<OlimpiadaPage />} />
@@ -71,11 +69,11 @@ function App() {
       <Route path="/codewiki_2.0/admitere/:slug" element={<ProblemSetPage />} />
       <Route path="/codewiki_2.0/olimpiada/:slug" element={<ProblemSetPage />} />
 
-      {/* <Route
+      <Route
         path="/codewiki_2.0/blog/:slug"
         element={<Post blogs={storedData ? storedData : ""} />}
         exact
-      /> */}
+      />
   </Routes>
   );
 }
