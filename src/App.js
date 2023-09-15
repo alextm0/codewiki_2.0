@@ -20,7 +20,7 @@ function App() {
     JSON.parse(localStorage.getItem("strapiData")) || null
   );
 
-  const PUBLIC_URL = 'https://codewiki_2.0-blog.onrender.com';
+  const PUBLIC_URL = 'https://codewiki-blog.onrender.com';
   const LOCAL_URL = 'http://localhost:1337'
 
   let { loading, data, error } = useFetch(
