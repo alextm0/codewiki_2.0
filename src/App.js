@@ -18,8 +18,11 @@ function App() {
     JSON.parse(localStorage.getItem("strapiData")) || null
   );
 
+  const PUBLIC_URL = 'https://codewiki-blog.onrender.com';
+  const LOCAL_URL = 'http://localhost:3000'
+
   let { loading, data, error } = useFetch(
-    "https://codewiki-blog.onrender.com/api/blogs?populate=*"
+    `${PUBLIC_URL}/api/blogs?populate=*`
   );
 
   useEffect(() => {

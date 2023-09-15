@@ -20,6 +20,27 @@
     },
     "badge": {
       "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "rating": {
+      "type": "integer"
+    },
+    "authors": {
+      "type": "string"
+    },
+    "blogContent": {
+      "type": "richtext"
+    },
+    "resource": {
+      "type": "json"
+    },
+    "problemSet": {
+      "type": "json"
+    },
+    "publishDate": {
+      "type": "date"
     }
   }
 }
