@@ -9,6 +9,8 @@ import { MainPage, ErrorPage, ArticlePage, AdmiterePage, BacalaureatPage, Olimpi
 import useFetch from "./hooks/useFetch";
 
 function App() {
+  console.log("THIS PROJECT");
+
   useEffect(() => {
     AOS.init({ once: true });
     AOS.refresh();
