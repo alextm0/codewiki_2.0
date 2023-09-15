@@ -20,7 +20,7 @@ function App() {
     JSON.parse(localStorage.getItem("strapiData")) || null
   );
 
-  const PUBLIC_URL = 'https://codewiki-blog.onrender.com';
+  const PUBLIC_URL = 'https://codewiki_2.0-blog.onrender.com';
   const LOCAL_URL = 'http://localhost:1337'
 
   let { loading, data, error } = useFetch(
@@ -47,29 +47,29 @@ function App() {
         element={<MainPage blogs={storedData ? storedData : ""} />}
       />
       <Route
-        path="/codewiki"
+        path="/codewiki_2.0"
         element={<MainPage blogs={storedData ? storedData : ""} />}
       />
 
       <Route
-        path="/codewiki/articles"
+        path="/codewiki_2.0/articles"
         element={<ArticlePage blogs={storedData ? storedData : ""} />}
       />
-      <Route path="/codewiki/admitere" element={<AdmiterePage />} />
-      <Route path="/codewiki/bacalaureat" element={<BacalaureatPage />} />
-      <Route path="/codewiki/olimpiada" element={<OlimpiadaPage />} />
-      <Route path="/codewiki/learn" element={<StartLearningPage />} />
-      <Route path="/codewiki/problems" element={<ErrorPage />} />
-      <Route path="/codewiki/signup" element={<ErrorPage />} />
-      <Route path="/codewiki/login" element={<ErrorPage />} />
+      <Route path="/codewiki_2.0_2.0/admitere" element={<AdmiterePage />} />
+      <Route path="/codewiki_2.0_2.0/bacalaureat" element={<BacalaureatPage />} />
+      <Route path="/codewiki_2.0/olimpiada" element={<OlimpiadaPage />} />
+      <Route path="/codewiki_2.0/learn" element={<StartLearningPage />} />
+      <Route path="/codewiki_2.0/problems" element={<ErrorPage />} />
+      <Route path="/codewiki_2.0/signup" element={<ErrorPage />} />
+      <Route path="/codewiki_2.0/login" element={<ErrorPage />} />
       <Route path="*" element={<ErrorPage />} />
 
-      <Route path="/codewiki/bacalaureat/:slug" element={<ProblemSetPage />} />
-      <Route path="/codewiki/admitere/:slug" element={<ProblemSetPage />} />
-      <Route path="/codewiki/olimpiada/:slug" element={<ProblemSetPage />} />
+      <Route path="/codewiki_2.0/bacalaureat/:slug" element={<ProblemSetPage />} />
+      <Route path="/codewiki_2.0/admitere/:slug" element={<ProblemSetPage />} />
+      <Route path="/codewiki_2.0/olimpiada/:slug" element={<ProblemSetPage />} />
 
       <Route
-        path="/codewiki/blog/:slug"
+        path="/codewiki_2.0/blog/:slug"
         element={<Post blogs={storedData ? storedData : ""} />}
         exact
       />
