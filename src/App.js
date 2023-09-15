@@ -39,10 +39,8 @@ function App() {
   if (error) return <p> Error! </p>;
   if (!data && !storedData) return null;
 
-  if(storedData.data != 0)
+  if(data && storedData.data != 0)
     console.log(storedData.data);
-
-  // blogs={storedData ? storedData : ""}
 
   return (
     <Routes>
