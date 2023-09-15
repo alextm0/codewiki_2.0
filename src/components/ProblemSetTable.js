@@ -56,8 +56,8 @@ function ProblemSetTable({ problemSet }) {
   }))
 
   return (
-    <div className='font-poppins font-medium'>
-      <h1 className='text-gray-700 text-3xl mb-5 font-semibold'>
+    <div className='font-poppins '>
+      <h1 className='text-gray-700 text-[1.8rem] mb-5 font-semibold'>
         Practice Problems
       </h1>
       <div class="overflow-x-auto relative shadow-md sm:rounded-lg">

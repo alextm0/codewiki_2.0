@@ -1,9 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&family=PT+Serif:wght@400;700&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Quicksand:wght@300;400;500;600;700&family=Righteous&family=Rubik:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Quicksand:wght@300;400;500;600;700&display=swap');@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Open+Sans:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Quicksand:wght@300;400;500;600;700&family=Raleway:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
 
 @layer components {
   .placeholder-style::placeholder {
@@ -126,15 +128,21 @@ li > a:hover {
 
 /* Markdown Styles */
 /* Headers */
+
+/* TEXT FONT SIZE */
 .markdown p {
-  font-size: 18px;
+  font-size: 17px;
 }
 
+.katex { font-size: 1.1em !important; } 
 
 
 .markdown h1 {
-  font-size: 2rem;
-  font-weight: bold;
+  font-family: poppins;
+  font-weight: 600;
+
+  font-size: 1.8rem;
+  /* font-weight: bold; */
   margin-top: 20px;
   margin-bottom: 10px;
 }
@@ -220,6 +228,8 @@ code {
   margin-left: 30px;
 }
 
+
+
 .markdown blockquote::before {
   content: '';
   position: absolute;
@@ -247,6 +257,7 @@ code {
 } */
 
 /* Strong (bold) */
+
 .markdown strong {
   font-weight: bold;
 }
@@ -258,7 +269,7 @@ code {
 
 .markdown ul,
 .markdown li {
-  font-size: 18px;
+  font-size: 17px;
 }
 
 .markdown ul {

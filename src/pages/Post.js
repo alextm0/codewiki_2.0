@@ -85,7 +85,7 @@ function Post({ blogs }) {
     blog = blogs.data.find((blog) => blog.attributes.slug === slug);
 
   return (
-    <div className="bg-white font-dmsans">
+    <div className="bg-white font-inter">
       {/* NAVBAR */}
       <div className="bg-gradient-to-br from-[#102a4a] to-[#342a84] mb-16 font-poppins">
         <Navbar />
@@ -100,7 +100,7 @@ function Post({ blogs }) {
 
           {/* TITLE AND AUTHORS */}
           <div>
-            <h1 className="text-gray-800 font-bold text-4xl w-full -mt-5 -mb-3 font-quicksand">
+            <h1 className="text-gray-800 font-bold text-4xl w-full -mt-5 -mb-3 font-poppins">
               {blog.attributes && blog.attributes.title}
             </h1>
 
@@ -117,13 +117,13 @@ function Post({ blogs }) {
               {" "}
               Recent articles{" "}
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col bg-red-500">
               {blogs.data.map((blog) => {
                 if (blog.attributes && blog.attributes.slug != slug)
                   return (
                     <a
                       className="text-[#565656] hover:text-blue-600 "
-                      href={`${PUBLIC_URL}/codewiki_2.0/blog/${blog.attributes.slug}`}
+                      href={`https://alextm0.github.io/codewiki_2.0/blog/${blog.attributes.slug}`}
                     >
                       {blog.attributes.title}
                     </a>
@@ -204,7 +204,7 @@ function Post({ blogs }) {
                   return (
                     <a
                       className="text-[#565656] hover:text-blue-600 "
-                      href={`${PUBLIC_URL}/codewiki_2.0/blog/${blog.attributes.slug}`}
+                      href={`https://alextm0.github.io/codewiki_2.0/blog/${blog.attributes.slug}`}
                     >
                       {blog.attributes.title}
                     </a>

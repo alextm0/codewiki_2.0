@@ -27,7 +27,7 @@ function ResourcesTable({ header, resource }) {
 
   return (
     <div className='font-poppins'>
-      <h1 className='font-bold text-gray-700 text-3xl mb-5'>
+      <h1 className='font-semibold text-gray-700 text-[1.8rem] mb-5'>
         { header }
       </h1>
       <div class="font-poppins font-medium overflow-x-auto relative shadow-md sm:rounded-lg">

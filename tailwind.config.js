@@ -6,6 +6,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
+        openSans: ["Open Sans"],
+        raleway: ["Raleway"],
+        inter: ["Inter"],
         righteous: ["Righteous"],
         quicksand: ["Quicksand"],
         merriweather: ["Merriweather"],
