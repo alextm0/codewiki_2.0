@@ -43,6 +43,8 @@ export const HeadingRenderer = (props) => {
 };
 
 function Post({ blogs }) {
+  console.log(blogs);
+
   const [readPercentage, setReadPercentage] = useState(0);
   const [showRadialProgress, setShowRadialProgress] = useState(false);
 
@@ -76,7 +78,9 @@ function Post({ blogs }) {
 
   const { slug } = useParams();
 
-  let blog = blogs && blogs.data.find((blog) => blog.attributes.slug === slug);
+  let blog = "";
+  if(blogs.data)
+    blog = blogs.data.find((blog) => blog.attributes.slug === slug);
 
   return (
     <div className="bg-white font-nunito">
@@ -90,16 +94,16 @@ function Post({ blogs }) {
         {/* CONTENT COMPONENT */}
         <div className="max-w-full md:max-w-[1024px] px-6 md:px-20  md:py-16 space-y-12 text-gray-800 flex-grow">
           {/* RATING */}
-          <Rating stars={blog.attributes.rating} onBlogPost={true} />
+          <Rating stars={blog.attributes && blog.attributes.rating} onBlogPost={true} />
 
           {/* TITLE AND AUTHORS */}
           <div>
             <h1 className="text-gray-800 font-bold text-4xl w-full -mt-5 -mb-3 font-quicksand">
-              {blog.attributes.title}
+              {blog.attributes && blog.attributes.title}
             </h1>
 
             <h2 className="text-gray-600 font-medium text-lg mt-5 -mb-3 font-quicksand">
-              Authors: {blog.attributes.authors}
+              Authors: {blog.attributes && blog.attributes.authors}
             </h2>
           </div>
 
@@ -113,7 +117,7 @@ function Post({ blogs }) {
             </div>
             <div className="flex flex-col">
               {blogs.data.map((blog) => {
-                if (blog.attributes.slug != slug)
+                if (blog.attributes && blog.attributes.slug != slug)
                   return (
                     <a
                       className="text-[#565656] hover:text-blue-600 "
@@ -131,7 +135,7 @@ function Post({ blogs }) {
             <div className="toc-container flex flex-col gap-5">
               <div className="text-blue-800 font-bold">Table of contents</div>
               <Toc
-                markdownText={blog.attributes.blogContent}
+                markdownText={blog.attributes && blog.attributes.blogContent}
                 highestHeadingLevel={1}
                 lowestHeadingLevel={2}
                 className="toc"
@@ -144,7 +148,7 @@ function Post({ blogs }) {
             {/* eslint-disable-next-line  */}
 
             <ReactMarkdown
-              children={blog.attributes.blogContent}
+              children={blog.attributes && blog.attributes.blogContent}
               remarkPlugins={[remarkMath, remarkGfm]}
               rehypePlugins={[rehypeKatex, rehypeRaw]}
               className="markdown"
@@ -175,15 +179,15 @@ function Post({ blogs }) {
             />
           </div>
 
-          {blog.attributes.resource && (
+          {blog.attributes ? (
             <ResourcesTable
               header={"Materiale de studiu"}
               resource={blog.attributes.resource}
             />
-          )}
-          {blog.attributes.problemSet && (
+          ) : " "}
+          {blog.attributes ? (
             <ProblemSetTable problemSet={blog.attributes.problemSet} />
-          )}
+          ) : " "}
         </div>
         {/* TABLE OF CONTENTS - DESKTOP */}
         <div>
@@ -194,7 +198,7 @@ function Post({ blogs }) {
             </div>
             <div className="flex flex-col">
               {blogs.data.map((blog) => {
-                if (blog.attributes.slug != slug)
+                if (blog.attributes && blog.attributes.slug != slug)
                   return (
                     <a
                       className="text-[#565656] hover:text-blue-600 "
@@ -238,7 +242,7 @@ function Post({ blogs }) {
                 </div>
               </div>
               <Toc
-                markdownText={blog.attributes.blogContent}
+                markdownText={blog.attributes && blog.attributes.blogContent}
                 highestHeadingLevel={1}
                 lowestHeadingLevel={2}
                 className="toc"
