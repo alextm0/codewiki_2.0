@@ -25,6 +25,8 @@ import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { useState } from "react";
 import { useEffect } from "react";
 
+const PUBLIC_URL = 'https://codewiki-blog.onrender.com';
+
 const flatten = (text, child) => {
   return typeof child === "string"
     ? text + child
@@ -121,7 +123,7 @@ function Post({ blogs }) {
                   return (
                     <a
                       className="text-[#565656] hover:text-blue-600 "
-                      href={`http://localhost:3000/codewiki/blog/${blog.attributes.slug}`}
+                      href={`${PUBLIC_URL}/codewiki_2.0/blog/${blog.attributes.slug}`}
                     >
                       {blog.attributes.title}
                     </a>
@@ -202,7 +204,7 @@ function Post({ blogs }) {
                   return (
                     <a
                       className="text-[#565656] hover:text-blue-600 "
-                      href={`http://localhost:3000/codewiki/blog/${blog.attributes.slug}`}
+                      href={`${PUBLIC_URL}/codewiki_2.0/blog/${blog.attributes.slug}`}
                     >
                       {blog.attributes.title}
                     </a>

@@ -56,8 +56,8 @@ function App() {
         path="/codewiki_2.0/articles"
         element={<ArticlePage blogs={storedData ? storedData : ""} />}
       />
-      <Route path="/codewiki_2.0_2.0/admitere" element={<AdmiterePage />} />
-      <Route path="/codewiki_2.0_2.0/bacalaureat" element={<BacalaureatPage />} />
+      <Route path="/codewiki_2.0/admitere" element={<AdmiterePage />} />
+      <Route path="/codewiki_2.0/bacalaureat" element={<BacalaureatPage />} />
       <Route path="/codewiki_2.0/olimpiada" element={<OlimpiadaPage />} />
       <Route path="/codewiki_2.0/learn" element={<StartLearningPage />} />
       <Route path="/codewiki_2.0/problems" element={<ErrorPage />} />

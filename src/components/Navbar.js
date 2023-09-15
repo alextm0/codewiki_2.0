@@ -45,7 +45,7 @@ function Navbar() {
       <div className="max-w-screen-xl items py-4 px-8 mx-auto">
         <div className="relative flex items-center justify-between space-x-4 lg:space-x-10 ">
           <div className="flex items-center lg:w-0 lg:flex-1 text-gray-900 font-righteous text-3xl">
-            <Link to="/codewiki" className="flex items-center">
+            <Link to="/codewiki_2.0" className="flex items-center">
               <img src={Logo} alt="logo" className="mr-2" />
               <span className="w-32 h-10 rounded-lg flex justify-center items-center text-white ">
                 {" "}
@@ -57,7 +57,7 @@ function Navbar() {
           <nav className="hidden space-x-8 text-sm mt-2 font-medium md:flex">
             <div class="relative after:absolute after:bg-gray-200 mt-2 after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300">
               <Link
-                to="/codewiki/articles"
+                to="/codewiki_2.0/articles"
                 className="text-gray-500 hover:text-white"
               >
                 {" "}
@@ -80,21 +80,21 @@ function Navbar() {
                 {/* <!-- Dropdown menu --> */}
                 {dropdown && (
                   <div class="absolute left-0 z-20 w-48 p-2 mt-2 bg-white rounded-xl shadow-xl">
-                    <Link to={"/codewiki/admitere"}>
+                    <Link to={"/codewiki_2.0/admitere"}>
                       <div class="block px-4 py-3 text-sm rounded-xl text-gray-600 capitalize transition-colors duration-200 transform hover:bg-gray-200 active:bg-purple-500 active:text-gray-200">
                         {" "}
                         Admitere{" "}
                       </div>
                     </Link>
 
-                    <Link to={"/codewiki/bacalaureat"}>
+                    <Link to={"/codewiki_2.0/bacalaureat"}>
                       <div class="block px-4 py-3 text-sm rounded-xl text-gray-600 capitalize transition-colors duration-200 transform hover:bg-gray-200 active:bg-purple-500 active:text-gray-200">
                         {" "}
                         Bacalaureat{" "}
                       </div>
                     </Link>
 
-                    <Link to={"/codewiki/olimpiada"}>
+                    <Link to={"/codewiki_2.0/olimpiada"}>
                       <div class="block px-4 py-3 text-sm rounded-xl text-gray-600 capitalize transition-colors duration-200 transform hover:bg-gray-200 active:bg-purple-500 active:text-gray-200">
                         {" "}
                         Olimpiada{" "}
@@ -109,7 +109,7 @@ function Navbar() {
 
             <div class="relative after:absolute after:bg-gray-200 mt-2 after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300">
               <Link
-                to="/codewiki/problems"
+                to="/codewiki_2.0/problems"
                 className="text-gray-500 hover:text-white"
               >
                 {" "}
@@ -119,13 +119,13 @@ function Navbar() {
           </nav>
 
           <div className="items-center justify-end flex-1 hidden space-x-4 sm:flex">
-            <Link to={"/codewiki/login"}>
+            <Link to={"/codewiki_2.0/login"}>
               <button className="px-5 py-2 text-sm font-medium text-gray-600 bg-gray-100 hover:bg-gray-200 rounded-lg">
                 Log in
               </button>
             </Link>
 
-            <Link to={"/codewiki/signup"}>
+            <Link to={"/codewiki_2.0/signup"}>
               <button className="px-5 py-2 text-sm font-medium text-white bg-orange-500 hover:bg-orange-600 rounded-lg">
                 Sign up
               </button>
@@ -150,7 +150,7 @@ function Navbar() {
             >
               <div class="flex flex-col w-64 h-screen px-4 py-8 bg-gray-800 border-gray-600">
                 {/* Logo */}
-                <Link to={"/codewiki"}>
+                <Link to={"/codewiki_2.0"}>
                   <h2 class="text-3xl text-white inline-flex items-center gap-2 mb-5 font-righteous ">
                     {" "}
                     <img src={Logo} alt="logo" /> CodeWiki
@@ -202,7 +202,7 @@ function Navbar() {
                         />
                       </svg>
 
-                      <Link to={"/codewiki/articles"}>
+                      <Link to={"/codewiki_2.0/articles"}>
                         <span class="mx-4 font-medium">Articole</span>
                       </Link>
                     </a>
@@ -268,7 +268,7 @@ function Navbar() {
                           <Link to="/bacalaureat"> <div className='text-gray-700 active:text-gray-200'>Bacalaureat</div> </Link>
                           <Link to="/olimpiada"> <div className='text-gray-700 active:text-gray-200'>Olimpiada</div> </Link> */}
 
-                          <Link to="/codewiki/admitere">
+                          <Link to="/codewiki_2.0/admitere">
                             {" "}
                             <li>
                               <a className="text-gray-700 active:text-gray-200">
@@ -276,7 +276,7 @@ function Navbar() {
                               </a>
                             </li>{" "}
                           </Link>
-                          <Link to="/codewiki/bacalaureat">
+                          <Link to="/codewiki_2.0/bacalaureat">
                             {" "}
                             <li>
                               <a className="text-gray-700 active:text-gray-200">
@@ -284,7 +284,7 @@ function Navbar() {
                               </a>
                             </li>{" "}
                           </Link>
-                          <Link to="/codewiki/olimpiada">
+                          <Link to="/codewiki_2.0/olimpiada">
                             {" "}
                             <li>
                               <a className="text-gray-700 active:text-gray-200">

@@ -10,7 +10,7 @@ function Category({ category, categoryName, categoryDescription, topics }) {
         className="flex flex-col sm:relative sm:before:absolute sm:before:top-2 sm:before:w-4 sm:before:h-4 sm:before:rounded-full sm:before:left-[-35px] sm:before:z-[1] before:bg-violet-400"
         bis_skin_checked="1"
       >
-        <Link to={`/codewiki/${category}/${topic.slug}`}>
+        <Link to={`/codewiki_2.0/${category}/${topic.slug}`}>
           <h3 className="text-xl font-semibold tracking-wide text-gray-800">
             {topic.name}
           </h3>
