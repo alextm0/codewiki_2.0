@@ -38,7 +38,8 @@ function App() {
   if (error) return <p> Error! </p>;
   if (!data && !storedData) return null;
 
-  console.log(storedData.data);
+  if(storedData.data)
+    console.log(storedData.data);
 
   return (
     <Routes>
