@@ -39,13 +39,16 @@ function App() {
   if (error) return <p> Error! </p>;
   if (!data && !storedData) return null;
 
-  console.log(storedData.data);
+  if(storedData.data != 0)
+    console.log(storedData.data);
+
+  // blogs={storedData ? storedData : ""}
 
   return (
     <Routes>
       <Route
         path="/"
-        element={<MainPage blogs={storedData ? storedData : ""}/>}
+        element={<MainPage/>}
       />
       <Route
         path="/codewiki_2.0"
