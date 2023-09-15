@@ -18,7 +18,7 @@ function MainPage({ blogs }) {
       </div>
       <Courses />
       <Features />
-      {/* <Articles blogs={blogs ? blogs : ""} /> */}
+      <Articles blogs={blogs ? blogs : ""} />
       <Contact />
     </div>
   );

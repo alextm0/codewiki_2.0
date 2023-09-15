@@ -16,10 +16,12 @@ function App() {
   }, []);
 
   const [storedData, setStoredData] = useState(
-    JSON.parse(localStorage.getItem("strapiData")) || null
+    JSON.parse(localStorage.getItem("strapiData")) || {}
   );
 
-  const PUBLIC_URL = 'https://codewiki-blog.onrender.com/api/blogs';
+  console.log("Initial", storedData);
+
+  const PUBLIC_URL = 'https://codewiki-blog.onrender.com/api/blogs?populate=*';
   const LOCAL_URL = 'http://localhost:1337'
 
   // let { loading, data, error } = useFetch(
@@ -39,7 +41,7 @@ function App() {
   if (error) return <p> Error! </p>;
   if (!data && !storedData) return null;
 
-  if(data && storedData.data != 0)
+  if(storedData && storedData.data != 0)
     console.log(storedData.data);
 
   return (
