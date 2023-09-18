@@ -45,8 +45,6 @@ export const HeadingRenderer = (props) => {
 };
 
 function Post({ blogs }) {
-  console.log(blogs);
-
   const [readPercentage, setReadPercentage] = useState(0);
   const [showRadialProgress, setShowRadialProgress] = useState(false);
 
@@ -77,6 +75,8 @@ function Post({ blogs }) {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const customMatchers = { "[?!]": "-" }
 
   const { slug } = useParams();
 
@@ -113,16 +113,16 @@ function Post({ blogs }) {
           <div className="divider w-[100%]"></div>
 
           <div className="text-[18px] md:hidden">
-            <div className="text-blue-800 font-bold mb-5">
+            <div className="text-blue-800 font-bold mb-3 text-[16px]">
               {" "}
               Recent articles{" "}
             </div>
-            <div className="flex flex-col bg-red-500">
+            <div className="flex flex-col gap-1">
               {blogs.data.map((blog) => {
                 if (blog.attributes && blog.attributes.slug != slug)
                   return (
                     <a
-                      className="text-[#565656] hover:text-blue-600 "
+                      className="text-[#565656] hover:text-blue-600 text-[14px]"
                       href={`https://alextm0.github.io/codewiki_2.0/blog/${blog.attributes.slug}`}
                     >
                       {blog.attributes.title}
@@ -135,11 +135,11 @@ function Post({ blogs }) {
           {/* TABLE OF CONTENTS - MOBILE */}
           <div className="md:hidden text-[18px]">
             <div className="toc-container flex flex-col gap-5">
-              <div className="text-blue-800 font-bold">Table of contents</div>
+              <div className="text-blue-800 font-bold text-[16px]">Table of contents</div>
               <Toc
                 markdownText={blog.attributes && blog.attributes.blogContent}
                 highestHeadingLevel={1}
-                lowestHeadingLevel={2}
+                lowestHeadingLevel={3}
                 className="toc"
               />
             </div>
@@ -177,33 +177,34 @@ function Post({ blogs }) {
                 },
                 h1: HeadingRenderer,
                 h2: HeadingRenderer,
+                h3: HeadingRenderer,
               }}
             />
           </div>
 
-          {blog.attributes ? (
+          {(blog.attributes && blog.attributes.resource) ? (
             <ResourcesTable
               header={"Materiale de studiu"}
               resource={blog.attributes.resource}
             />
-          ) : " "}
-          {blog.attributes ? (
+          ) : ""}
+          {(blog.attributes && blog.attributes.problemSet) ? (
             <ProblemSetTable problemSet={blog.attributes.problemSet} />
-          ) : " "}
+          ) : ""}
         </div>
         {/* TABLE OF CONTENTS - DESKTOP */}
         <div>
-          <div className="md:mt-32">
-            <div className="text-blue-800 font-bold mb-5">
+          <div className="hidden md:block md:mt-32 md:max-w-[300px]">
+            <div className="text-blue-800 font-bold mb-3">
               {" "}
               Recent articles{" "}
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col gap-1">
               {blogs.data.map((blog) => {
                 if (blog.attributes && blog.attributes.slug != slug)
                   return (
                     <a
-                      className="text-[#565656] hover:text-blue-600 "
+                      className="text-[#565656] hover:text-blue-600 text-[14px]"
                       href={`https://alextm0.github.io/codewiki_2.0/blog/${blog.attributes.slug}`}
                     >
                       {blog.attributes.title}
@@ -213,8 +214,8 @@ function Post({ blogs }) {
             </div>
           </div>
           <div className="toc-navigation">
-            <div className="toc-container hidden md:flex md:flex-col gap-5 md:mt-20">
-              <div className="text-blue-800 font-bold">Table of contents</div>
+            <div className="toc-container hidden md:flex md:flex-col gap-3 md:mt-20">
+              <div className="text-blue-800 font-bold text-[16px]">Table of contents</div>
               {/* Progress bar */}
               <div
                 className={`fixed bottom-0 right-0 p-4 ${
@@ -246,8 +247,9 @@ function Post({ blogs }) {
               <Toc
                 markdownText={blog.attributes && blog.attributes.blogContent}
                 highestHeadingLevel={1}
-                lowestHeadingLevel={2}
+                lowestHeadingLevel={3}
                 className="toc"
+                customMatchers={customMatchers}
               />
             </div>
           </div>

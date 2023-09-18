@@ -132,10 +132,20 @@ li > a:hover {
 /* TEXT FONT SIZE */
 .markdown p {
   font-size: 17px;
+  display: inline;
+  /* text-indent: 50px; */
 }
 
 .katex { font-size: 1.1em !important; } 
 
+.markdown em {
+  color: rgb(30 64 175 / var(--tw-text-opacity));  font-weight: 500;
+  font-style: normal;
+}
+
+.markdown h1:nth-child(1) {
+  margin-top: 0px;
+}
 
 .markdown h1 {
   font-family: poppins;
@@ -143,7 +153,7 @@ li > a:hover {
 
   font-size: 1.8rem;
   /* font-weight: bold; */
-  margin-top: 20px;
+  margin-top: 50px;
   margin-bottom: 10px;
 }
 
@@ -155,14 +165,16 @@ li > a:hover {
 }
 
 .markdown h3 {
-  font-size: 1.2rem;
-  font-weight: bold;
+  font-size: 17px;
+  display: inline;
+  /* color: #b91313;   */
+  font-weight: bold;  
   margin-top: 15px;
   margin-bottom: 8px;
 }
 
 .markdown h4 {
-  font-size: 18px;
+  font-size: 17px;
   /* font-weight: bold; */
   margin-top: 15px;
   margin-bottom: 8px;
@@ -181,6 +193,8 @@ li > a:hover {
   margin-top: 15px;
   margin-bottom: 8px;
 }
+
+
 
 /* Code */
 .markdown pre {
@@ -264,7 +278,9 @@ code {
 
 /* Underline */
 .markdown u {
-  text-decoration: underline;
+  text-decoration: none;
+  color: #b91313;
+  font-weight: 800;
 }
 
 .markdown ul,
@@ -273,7 +289,7 @@ code {
 }
 
 .markdown ul {
-  margin-top: 12px
+  margin-top: 12px;
 }
 
 .markdown ul > li {
@@ -326,13 +342,26 @@ code {
   overflow: auto;
 }
 
+.toc ul:nth-child(1) {
+  margin-top: 10px;
+}
+
 .toc ul {
-  padding-left: 1.5rem;
+  padding-left: 12px;
+  margin-bottom: 10px;
   /* list-style-type: disc; */
 }
 
+.toc > a {
+  background-color: red;
+}
+
+.toc {
+  font-size: 14px;
+}
+
 .toc > li {
-  padding-top: 20px;
+  padding-top: 10px;
 }
 
 .toc > li:nth-child(1) {

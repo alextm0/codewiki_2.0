@@ -426,7 +426,7 @@ function StartLearningPage() {
         </div>
       </div>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
