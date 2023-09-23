@@ -4,7 +4,7 @@ import { Route, Routes, useRoutes } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-import { MainPage, ErrorPage, ArticlePage, AdmiterePage, BacalaureatPage, OlimpiadaPage, Post, StartLearningPage, ProblemSetPage } from './pages'
+import { MainPage, ErrorPage, ArticlePage, AdmiterePage, BacalaureatPage, OlimpiadaPage, Post, StartLearningPage, ProblemSetPage, SolutieProbleme } from './pages'
 
 import useFetch from "./hooks/useFetch";
 import useFetchDataAPI from './hooks/useFetchDataAPI'
@@ -19,30 +19,34 @@ function App() {
     JSON.parse(localStorage.getItem("strapiData")) || {}
   );
 
-  console.log("Initial", storedData);
+  const [storedSolutionData, setStoredSolutionData] = useState(
+    JSON.parse(localStorage.getItem("strapiSolutionData")) || {}
+  );
 
   const PUBLIC_URL = 'https://codewiki-blog.onrender.com/api/blogs?populate=*';
-  const LOCAL_URL = 'http://localhost:1337'
+  const SOLUTIONS_URL = 'http://localhost:1337/api/solutions?populate=*';
 
-  // let { loading, data, error } = useFetch(
-  //   `${PUBLIC_URL}/api/blogs?populate=*`
-  // );
-
-  let {loading,data,error} = useFetchDataAPI(PUBLIC_URL)
+  let {loading, error, data, solutionLoading, solutionError, solutionData} = useFetchDataAPI(PUBLIC_URL, SOLUTIONS_URL)
 
   useEffect(() => {
     if (data) {
       localStorage.setItem("strapiData", JSON.stringify(data));
       setStoredData(data);
     }
-  }, [data]);
+    if (solutionData) {
+      localStorage.setItem("strapiSolutionData", JSON.stringify(solutionData));
+      setStoredSolutionData(solutionData);
+    }
+  }, [data, solutionData]);
 
   if (loading && !storedData) return <p> Loading </p>;
   if (error) return <p> Error! </p>;
   if (!data && !storedData) return null;
 
-  if(storedData && storedData.data != 0)
-    console.log(storedData.data);
+
+  if (solutionLoading && !storedSolutionData) return <p> Loading </p>;
+  if (solutionError) return <p> Error! </p>;
+  if (!solutionData && !storedSolutionData) return null;
 
   return (
     <Routes>
@@ -71,6 +75,8 @@ function App() {
       <Route path="/codewiki_2.0/bacalaureat/:slug" element={<ProblemSetPage />} />
       <Route path="/codewiki_2.0/admitere/:slug" element={<ProblemSetPage />} />
       <Route path="/codewiki_2.0/olimpiada/:slug" element={<ProblemSetPage />} />
+
+      <Route path="/codewiki_2.0/solutie/:slug" element={<SolutieProbleme data={storedSolutionData ? storedSolutionData : ""} />} />
 
       <Route
         path="/codewiki_2.0/blog/:slug"

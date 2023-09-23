@@ -2,6 +2,7 @@ import React from 'react'
 
 import { TbDotsVertical } from 'react-icons/tb'
 import Dropdown from './Dropdown'
+import { Link } from 'react-router-dom'
 
 {/* 
   text-[#2563eb]
@@ -15,6 +16,7 @@ function ProblemSetTable({ problemSet }) {
   const normalBadge = <span class="inline-flex items-center gap-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-blue-100 text-blue-800">Normal</span>
   const easyBadge = <span class="inline-flex items-center gap-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-green-100 text-green-800">Easy</span>
   const hardBadge = <span class="inline-flex items-center gap-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-red-100 text-red-800">Hard</span>
+  const otherBadge = <span>...</span>
 
   let currentBadge;
   if (problemSet.badge == "hard")
@@ -41,16 +43,26 @@ function ProblemSetTable({ problemSet }) {
 
         {/* Badge */}
         <td class="py-4 px-6 text-gray-600">
-          { problem.badge === "hard" ? hardBadge : problem.badge === "normal" ? normalBadge : easyBadge }
+          { problem.badge === "hard" ? hardBadge : problem.badge === "normal" ? normalBadge : problem.badge === "easy" ? easyBadge : currentBadge }
         </td>
 
         <td class="py-4 px-6 text-gray-600">
           {problem.tags}
         </td>
 
-        <td class="py-4 px-6 text-2xl text-gray-600">
-          <TbDotsVertical />
-        </td>
+        {!(problem.badge != "hard" && problem.badge != "normal" && problem.badge != "easy") ?
+
+          <td class="py-4 px-6 text-2xl text-gray-600">
+            <Link to={`/codewiki_2.0/solutie/${problem.name}`}>
+              <TbDotsVertical />
+            </Link>
+          </td> :  
+
+          <td class="py-4 px-6 text-2xl text-gray-600">
+
+          </td>
+        }
+
       </tr >
     )
   }))

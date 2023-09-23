@@ -8,6 +8,7 @@ import Post from './Post'
 import ProblemSetPage from './ProblemSetPage'
 import SignUpPage from './SignUpPage'
 import StartLearningPage from './StartLearningPage'
+import SolutieProbleme from './SolutieProbleme'
 
 export {
     AdmiterePage,
@@ -19,5 +20,6 @@ export {
     Post,
     ProblemSetPage,
     SignUpPage,
-    StartLearningPage
+    StartLearningPage,
+    SolutieProbleme
 };
