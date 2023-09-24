@@ -24,7 +24,7 @@ function App() {
   );
 
   const PUBLIC_URL = 'https://codewiki-blog.onrender.com/api/blogs?populate=*';
-  const SOLUTIONS_URL = 'http://localhost:1337/api/solutions?populate=*';
+  const SOLUTIONS_URL = 'https://codewiki-blog.onrender.com/api/solutions?populate=*';
 
   let {loading, error, data, solutionLoading, solutionError, solutionData} = useFetchDataAPI(PUBLIC_URL, SOLUTIONS_URL)
 
@@ -40,12 +40,12 @@ function App() {
   }, [data, solutionData]);
 
   if (loading && !storedData) return <p> Loading </p>;
-  if (error) return <p> Error! </p>;
+  if (error) return <p> Error! 1 </p>;
   if (!data && !storedData) return null;
 
 
   if (solutionLoading && !storedSolutionData) return <p> Loading </p>;
-  if (solutionError) return <p> Error! </p>;
+  if (solutionError) return <p> Error! 2 </p>;
   if (!solutionData && !storedSolutionData) return null;
 
   return (
