@@ -123,7 +123,7 @@ function Post({ blogs }) {
                   return (
                     <a
                       className="text-[#565656] hover:text-blue-600 text-[14px]"
-                      href={`https://alextm0.github.io/codewiki_2.0/blog/${blog.attributes.slug}`}
+                      href={`https://codewiki.tech/#/blog/${blog.attributes.slug}`}
                     >
                       {blog.attributes.title}
                     </a>
@@ -153,7 +153,7 @@ function Post({ blogs }) {
               children={blog.attributes && blog.attributes.blogContent}
               remarkPlugins={[remarkMath, remarkGfm]}
               rehypePlugins={[rehypeKatex, rehypeRaw]}
-              className="markdown"
+              className="markdown text-justify"
               // escapeHtml={true}
               components={{
                 code({ node, inline, className, children, ...props }) {
@@ -161,7 +161,7 @@ function Post({ blogs }) {
                   return !inline && match ? (
                     <SyntaxHighlighter
                       codeTagProps={{
-                        style: { fontSize: "16px", lineHeight: "1.4" },
+                        style: { fontSize: "15px", lineHeight: "1.4", fontFamily: "Roboto Mono" },
                       }}
                       children={String(children).replace(/\n$/, "")}
                       style={vscDarkPlus} // theme
@@ -205,7 +205,7 @@ function Post({ blogs }) {
                   return (
                     <a
                       className="text-[#565656] hover:text-blue-600 text-[14px]"
-                      href={`https://alextm0.github.io/codewiki_2.0/blog/${blog.attributes.slug}`}
+                      href={`https://codewiki.tech/#/blog/${blog.attributes.slug}`}
                     >
                       {blog.attributes.title}
                     </a>
