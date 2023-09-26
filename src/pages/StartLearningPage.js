@@ -140,7 +140,7 @@ function StartLearningPage() {
                 </ul>
               </div>
               <Link
-                to={"/codewiki_2.0/admitere"}
+                to={"/admitere"}
                 className="font-quicksand mx-auto lg:mx-0 inline-flex font-bold px-8 py-3 mt-20 my-8 text-sm text-white transition bg-orange-500 hover:bg-orange-600 rounded hover:scale-110 hover:shadow-xl active:bg-indigo-500 focus:outline-none focus:ring"
                 href="#"
               >
@@ -279,7 +279,7 @@ function StartLearningPage() {
                 </ul>
               </div>
               <Link
-                to={"/codewiki_2.0/bacalaureat"}
+                to={"/bacalaureat"}
                 className="font-quicksand mx-auto lg:mx-0 inline-flex font-bold px-8 py-3 mt-20 my-8 text-sm text-white transition bg-orange-500 hover:bg-orange-600 rounded hover:scale-110 hover:shadow-xl active:bg-indigo-500 focus:outline-none focus:ring"
                 href="#"
               >
@@ -414,7 +414,7 @@ function StartLearningPage() {
                 </ul>
               </div>
               <Link
-                to={"/codewiki_2.0/olimpiada"}
+                to={"/olimpiada"}
                 className="font-quicksand mx-auto lg:mx-0 inline-flex font-bold px-8 py-3 mt-20 my-8 text-sm text-white transition bg-orange-500 hover:bg-orange-600 rounded hover:scale-110 hover:shadow-xl active:bg-indigo-500 focus:outline-none focus:ring"
                 href="#"
               >

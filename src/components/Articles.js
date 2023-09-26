@@ -31,7 +31,7 @@ function Articles({ blogs }) {
           {blogs.data &&
             blogs.data.slice(0, visibleArticles).map((blog, index) => (
               <Link
-                to={`/codewiki_2.0/blog/${blog.attributes.slug}`}
+                to={`/blog/${blog.attributes.slug}`}
                 className="pt-5"
                 key={blog.id}
               >

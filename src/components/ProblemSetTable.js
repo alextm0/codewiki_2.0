@@ -53,7 +53,7 @@ function ProblemSetTable({ problemSet }) {
         {!(problem.badge != "hard" && problem.badge != "normal" && problem.badge != "easy") ?
 
           <td class="py-4 px-6 text-2xl text-gray-600">
-            <Link to={`/codewiki_2.0/solutie/${problem.name}`}>
+            <Link to={`/solutie/${problem.name}`}>
               <TbDotsVertical />
             </Link>
           </td> :  

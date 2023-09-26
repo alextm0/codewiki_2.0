@@ -52,7 +52,7 @@ function App() {
     <Routes>
       <Route
         path="/"
-        element={<MainPage/>}
+        element={<MainPage blogs={storedData ? storedData : ""}/>}
       />
       <Route
         path="/codewiki_2.0"
@@ -60,28 +60,28 @@ function App() {
       />
 
       <Route
-        path="/codewiki_2.0/articles"
+        path="/articles"
         element={<ArticlePage blogs={storedData ? storedData : ""} />}
       />
-      <Route path="/codewiki_2.0/admitere" element={<AdmiterePage />} />
-      <Route path="/codewiki_2.0/bacalaureat" element={<BacalaureatPage />} />
-      <Route path="/codewiki_2.0/olimpiada" element={<OlimpiadaPage />} />
-      <Route path="/codewiki_2.0/learn" element={<StartLearningPage />} />
-      <Route path="/codewiki_2.0/problems" element={<ErrorPage />} />
-      <Route path="/codewiki_2.0/signup" element={<ErrorPage />} />
-      <Route path="/codewiki_2.0/login" element={<ErrorPage />} />
+      <Route path="/admitere" element={<AdmiterePage />} />
+      <Route path="/bacalaureat" element={<BacalaureatPage />} />
+      <Route path="/olimpiada" element={<OlimpiadaPage />} />
+      <Route path="/learn" element={<StartLearningPage />} />
+      <Route path="/problems" element={<ErrorPage />} />
+      <Route path="/signup" element={<ErrorPage />} />
+      <Route path="/login" element={<ErrorPage />} />
       <Route path="*" element={<ErrorPage />} />
 
-      <Route path="/codewiki_2.0/bacalaureat/:slug" element={<ProblemSetPage />} />
-      <Route path="/codewiki_2.0/admitere/:slug" element={<ProblemSetPage />} />
-      <Route path="/codewiki_2.0/olimpiada/:slug" element={<ProblemSetPage />} />
+      <Route path="/bacalaureat/:slug" element={<ProblemSetPage />} />
+      <Route path="/admitere/:slug" element={<ProblemSetPage />} />
+      <Route path="/olimpiada/:slug" element={<ProblemSetPage />} />
 
-      <Route path="/codewiki_2.0/solutie/:slug" element={<SolutieProbleme data={storedSolutionData ? storedSolutionData : ""} />} />
+      <Route path="/solutie/:slug" element={<SolutieProbleme data={storedSolutionData ? storedSolutionData : ""} />} />
       <Route path="*" element={<ErrorPage />} />
 
 
       <Route
-        path="/codewiki_2.0/blog/:slug"
+        path="/blog/:slug"
         element={<Post blogs={storedData ? storedData : ""} />}
         exact
       />
