@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.669be99b.css",
-    "main.js": "/static/js/main.78c9debe.js",
+    "main.css": "/static/css/main.c870ec68.css",
+    "main.js": "/static/js/main.12c09591.js",
     "static/media/hero_img_5.svg": "/static/media/hero_img_5.9e22993d6356d01a27833a8e6638664f.svg",
     "static/media/hero_img_11.svg": "/static/media/hero_img_11.a4eab9cca1b12b54d480606f0d790c60.svg",
     "static/media/KaTeX_AMS-Regular.ttf": "/static/media/KaTeX_AMS-Regular.853be92419a6c3766b9a.ttf",
@@ -69,11 +69,11 @@
     "static/media/admitere-icon.svg": "/static/media/admitere-icon.401222eb86cd4c3229a3ad73e792550c.svg",
     "static/media/bacalaureat-icon.svg": "/static/media/bacalaureat-icon.5b9160d2969778bf560e7c130cd5607d.svg",
     "index.html": "/index.html",
-    "main.669be99b.css.map": "/static/css/main.669be99b.css.map",
-    "main.78c9debe.js.map": "/static/js/main.78c9debe.js.map"
+    "main.c870ec68.css.map": "/static/css/main.c870ec68.css.map",
+    "main.12c09591.js.map": "/static/js/main.12c09591.js.map"
   },
   "entrypoints": [
-    "static/css/main.669be99b.css",
-    "static/js/main.78c9debe.js"
+    "static/css/main.c870ec68.css",
+    "static/js/main.12c09591.js"
   ]
 }
