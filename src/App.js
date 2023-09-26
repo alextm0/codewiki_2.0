@@ -77,6 +77,8 @@ function App() {
       <Route path="/codewiki_2.0/olimpiada/:slug" element={<ProblemSetPage />} />
 
       <Route path="/codewiki_2.0/solutie/:slug" element={<SolutieProbleme data={storedSolutionData ? storedSolutionData : ""} />} />
+      <Route path="*" element={<ErrorPage />} />
+
 
       <Route
         path="/codewiki_2.0/blog/:slug"
