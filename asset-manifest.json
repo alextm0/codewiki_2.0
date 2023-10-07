@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.c870ec68.css",
-    "main.js": "/static/js/main.12c09591.js",
+    "main.css": "/static/css/main.f2158044.css",
+    "main.js": "/static/js/main.3c4c5c07.js",
     "static/media/hero_img_5.svg": "/static/media/hero_img_5.9e22993d6356d01a27833a8e6638664f.svg",
     "static/media/hero_img_11.svg": "/static/media/hero_img_11.a4eab9cca1b12b54d480606f0d790c60.svg",
     "static/media/KaTeX_AMS-Regular.ttf": "/static/media/KaTeX_AMS-Regular.853be92419a6c3766b9a.ttf",
@@ -51,6 +51,8 @@
     "static/media/KaTeX_Script-Regular.woff": "/static/media/KaTeX_Script-Regular.073b3402d036714b4370.woff",
     "static/media/KaTeX_Size4-Regular.ttf": "/static/media/KaTeX_Size4-Regular.4ad7c7e8bb8d10a34bb7.ttf",
     "static/media/KaTeX_SansSerif-Regular.woff2": "/static/media/KaTeX_SansSerif-Regular.cd5e231e0cc53b2cb2c0.woff2",
+    "static/media/bpi4.svg": "/static/media/bpi4.b9f6bb197c04bf92b4810ca2c2848ebe.svg",
+    "static/media/olimpiada-icon6.svg": "/static/media/olimpiada-icon6.31d0141ac1fae3dd16ecb750f018c342.svg",
     "static/media/KaTeX_Script-Regular.woff2": "/static/media/KaTeX_Script-Regular.c81d1b2a4b75d3eded60.woff2",
     "static/media/KaTeX_Caligraphic-Bold.woff": "/static/media/KaTeX_Caligraphic-Bold.d757c535a2e5902f1325.woff",
     "static/media/KaTeX_Caligraphic-Regular.woff": "/static/media/KaTeX_Caligraphic-Regular.db074fa22cf224af93d7.woff",
@@ -69,11 +71,11 @@
     "static/media/admitere-icon.svg": "/static/media/admitere-icon.401222eb86cd4c3229a3ad73e792550c.svg",
     "static/media/bacalaureat-icon.svg": "/static/media/bacalaureat-icon.5b9160d2969778bf560e7c130cd5607d.svg",
     "index.html": "/index.html",
-    "main.c870ec68.css.map": "/static/css/main.c870ec68.css.map",
-    "main.12c09591.js.map": "/static/js/main.12c09591.js.map"
+    "main.f2158044.css.map": "/static/css/main.f2158044.css.map",
+    "main.3c4c5c07.js.map": "/static/js/main.3c4c5c07.js.map"
   },
   "entrypoints": [
-    "static/css/main.c870ec68.css",
-    "static/js/main.12c09591.js"
+    "static/css/main.f2158044.css",
+    "static/js/main.3c4c5c07.js"
   ]
 }
