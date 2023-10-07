@@ -51,7 +51,7 @@ function SolutieProbleme({ data }) {
 
   let sourceCode = "";
   if (data.data)
-    sourceCode = data.data.find((problem) => problem.attributes.slug === slug);
+    sourceCode = data.data && data.data.find((problem) => problem && problem.attributes.slug === slug);
 
   return (
     <div className="bg-white font-inter">
@@ -66,11 +66,15 @@ function SolutieProbleme({ data }) {
         <div className="max-w-full md:max-w-[1024px] px-6 md:px-20  md:py-16 space-y-12 text-gray-800 flex-grow">
 
           <div>
-            <a href={sourceCode.attributes.link} className="text-gray-800 font-bold text-4xl w-full -mt-5 -mb-3 font-poppins">
-              {sourceCode.attributes && sourceCode.attributes.name}
-            </a>
+            <div className="flex ">
+              <a href={sourceCode && sourceCode.attributes.link} className="text-gray-800 font-bold text-4xl w-full font-poppins">
+                {sourceCode && sourceCode.attributes.name}
+              </a>  
+              {/* <div className="">Solutie: Alexandru Toma</div> */}
+
+            </div>
             <h2 className="text-gray-600 font-medium text-lg mt-5 -mb-3 font-quicksand">
-              {sourceCode.attributes && sourceCode.attributes.problemSource}
+              {sourceCode && sourceCode.attributes.problemSource}
             </h2>
           </div>
 
