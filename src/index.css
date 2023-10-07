@@ -257,9 +257,8 @@ code {
 
 
 .markdown img {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  
+  margin: 20px auto; /* This will center the image horizontally and give it a top and bottom margin of 20px */
+  display: block; /* This ensures the image takes up its own line and respects the margin auto for centering */
   width: 49%;
 
   /* display: inline-block;

@@ -42,7 +42,7 @@
     "publishDate": {
       "type": "date"
     },
-    "artImage": {
+    "articleImage": {
       "allowedTypes": [
         "images",
         "files",
@@ -50,7 +50,7 @@
         "audios"
       ],
       "type": "media",
-      "multiple": false
+      "multiple": true
     }
   }
 }
