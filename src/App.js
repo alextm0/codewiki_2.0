@@ -4,7 +4,7 @@ import { Route, Routes, useRoutes } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-import { MainPage, ErrorPage, ArticlePage, AdmiterePage, BacalaureatPage, OlimpiadaPage, Post, StartLearningPage, ProblemSetPage, SolutieProbleme } from './pages'
+import { MainPage, ErrorPage, ArticlePage, AdmiterePage, BacalaureatPage, OlimpiadaPage, Post, StartLearningPage, ProblemSetPage, SolutieProbleme, Olimpiada_IX, Olimpiada_X, Olimpiada_XI_XII } from './pages'
 
 import useFetch from "./hooks/useFetch";
 import useFetchDataAPI from './hooks/useFetchDataAPI'
@@ -77,8 +77,6 @@ function App() {
       <Route path="/olimpiada/:slug" element={<ProblemSetPage />} />
 
       <Route path="/solutie/:slug" element={<SolutieProbleme data={storedSolutionData ? storedSolutionData : ""} />} />
-      <Route path="*" element={<ErrorPage />} />
-
 
       <Route
         path="/blog/:slug"

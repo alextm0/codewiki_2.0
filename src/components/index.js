@@ -37,5 +37,5 @@ export {
   ProblemSetTable,
   Rating,
   ResourcesTable,
-  scrollToTop,
+  scrollToTop
 };

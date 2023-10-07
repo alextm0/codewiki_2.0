@@ -93,9 +93,9 @@ const Contact = () => {
                 Ne-ar face placere sa auzim de la tine! Daca ai intrebari, sugestii sau feedback pentru noi, nu ezita sa ne contactezi prin intermediul formularului de mai jos. Vom incerca sa iti raspundem cat mai curand posibil. Multumim pentru interesul acordat blogului nostru.
               </p>
               {/* ::Email contact */}
-              <a href="#mail" className="inline-flex items-center text-base text-blue-400 font-semibold hover:text-orange-500">
+              <a className="inline-flex items-center text-base text-blue-400 font-semibold hover:text-orange-500">
                 <MailIcon className="mr-2 w-5 text-gray-400" />
-                codewiki@gmail.com
+                codewiki.blog@gmail.com
               </a>
               {/* ::Address */}
               {/* ::Socials */}

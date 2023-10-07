@@ -39,7 +39,7 @@ export const HeadingRenderer = (props) => {
   var slug = text.toLowerCase().replace(/[!?\s]/g, "-");
   return React.createElement(
     "h" + props.level,
-    { id: slug, className: "anchor" },
+    { id: `#/blog/${slug}`, className: "anchor" },
     props.children
   );
 };
@@ -81,8 +81,8 @@ function Post({ blogs }) {
   const { slug } = useParams();
 
   let blog = "";
-  if(blogs.data)
-    blog = blogs.data.find((blog) => blog.attributes.slug === slug);
+  if (blogs.data)
+    blog = blogs.data.find((blog) => blog.attributes && blog.attributes.slug === slug);
 
   return (
     <div className="bg-white font-inter">
@@ -112,6 +112,7 @@ function Post({ blogs }) {
           {/* PAGE DIVIDER */}
           <div className="divider w-[100%]"></div>
 
+          {/* RECENT ARTICLES - MOBILE */}
           <div className="text-[18px] md:hidden">
             <div className="text-blue-800 font-bold mb-3 text-[16px]">
               {" "}
@@ -125,7 +126,7 @@ function Post({ blogs }) {
                       className="text-[#565656] hover:text-blue-600 text-[14px]"
                       href={`https://codewiki.tech/#/blog/${blog.attributes.slug}`}
                     >
-                      {blog.attributes.title}
+                      {blog.attributes && blog.attributes.title}
                     </a>
                   );
               })}
@@ -189,12 +190,14 @@ function Post({ blogs }) {
             />
           ) : ""}
           {(blog.attributes && blog.attributes.problemSet) ? (
-            <ProblemSetTable problemSet={blog.attributes.problemSet} />
+            <ProblemSetTable problemSet={blog.attributes && blog.attributes.problemSet} />
           ) : ""}
         </div>
+
         {/* TABLE OF CONTENTS - DESKTOP */}
         <div>
-          <div className="hidden md:block md:mt-32 md:max-w-[300px]">
+
+          {/* <div className="hidden md:block md:mt-32 md:max-w-[300px]">
             <div className="text-blue-800 font-bold mb-3">
               {" "}
               Recent articles{" "}
@@ -212,15 +215,15 @@ function Post({ blogs }) {
                   );
               })}
             </div>
-          </div>
+          </div> */}
+
           <div className="toc-navigation">
             <div className="toc-container hidden md:flex md:flex-col gap-3 md:mt-20">
               <div className="text-blue-800 font-bold text-[16px]">Table of contents</div>
               {/* Progress bar */}
               <div
-                className={`fixed bottom-0 right-0 p-4 ${
-                  showRadialProgress ? "block" : "hidden"
-                }`}
+                className={`fixed bottom-0 right-0 p-4 ${showRadialProgress ? "block" : "hidden"
+                  }`}
                 style={{ zIndex: 9999 }}
               >
                 <div className="relative h-16 w-16">
@@ -244,6 +247,7 @@ function Post({ blogs }) {
                   </span>
                 </div>
               </div>
+
               <Toc
                 markdownText={blog.attributes && blog.attributes.blogContent}
                 highestHeadingLevel={1}

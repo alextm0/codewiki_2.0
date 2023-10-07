@@ -341,7 +341,7 @@ code {
   align-self: flex-start;
   position: -webkit-sticky; /* Safari */
   position: sticky;
-  top: 48px;
+  top: 0px;
   max-height: calc(100vh - 70px);
   overflow: auto;
 }
@@ -361,11 +361,11 @@ code {
 }
 
 .toc {
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .toc > li {
-  padding-top: 10px;
+  padding-top: 8px;
 }
 
 .toc > li:nth-child(1) {
