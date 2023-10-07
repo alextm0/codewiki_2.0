@@ -1,12 +1,16 @@
 import React from 'react'
 
 import BlogPostImg from '../assets/post.png'
+import BlogPostImg1 from '../assets/bpi4.svg'
+import BlogPostImg2 from '../assets/olimpiada-icon6.svg'
+
+
 import { AiOutlineArrowRight } from 'react-icons/ai'
 
-function BlogPost({ badge, title, date, description }) {
+function BlogPost({ badge, title, date, description, artImage }) {
   return (
     <div className="overflow-hidden shadow-lg transition duration-500 ease-in-out transform hover:shadow-2xl rounded-lg md:w-80">
-      <img alt="blog photo" src={BlogPostImg} className="max-h-40 w-full object-cover" />
+      <img alt="blog photo" src={artImage} className="max-h-48 w-full object-cover" />
       <div className='pl-4 pt-4 text-sm font-medium'>
         <div className='flex items-center '>
           <div className="text-sm text-gray-600 font-medium">

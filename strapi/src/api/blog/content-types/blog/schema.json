@@ -41,6 +41,16 @@
     },
     "publishDate": {
       "type": "date"
+    },
+    "artImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

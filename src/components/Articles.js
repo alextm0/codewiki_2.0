@@ -16,6 +16,8 @@ function Articles({ blogs }) {
     return 150;
   }
 
+  console.log(blogs);
+
   return (
     <div className="mx-auto pt-10 pb-10">
       <div className="text-center mb-5">
@@ -45,6 +47,7 @@ function Articles({ blogs }) {
                     title={blog.attributes.title}
                     date={blog.attributes.publishDate}
                     description={blog.attributes.desc}
+                    artImage={blog.attributes.artImage}
                   />
                 </div>
               </Link>
