@@ -19,6 +19,7 @@ function ProblemSetTable({ problemSet }) {
   const otherBadge = <span>...</span>
 
   let currentBadge;
+  if(!problemSet) return;
   if (problemSet.badge == "hard")
     currentBadge = hardBadge;
   else if(problemSet.badge == "normal")

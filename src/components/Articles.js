@@ -16,8 +16,6 @@ function Articles({ blogs }) {
     return 150;
   }
 
-  console.log(blogs);
-
   return (
     <div className="mx-auto pt-10 pb-10">
       <div className="text-center mb-5">

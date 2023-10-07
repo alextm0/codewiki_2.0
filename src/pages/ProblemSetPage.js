@@ -5,8 +5,26 @@ import { useParams } from "react-router-dom";
 
 import { ProblemSetTable } from "../components";
 
-function ProblemSetPage() {
+function ProblemSetPage( {data} ) {
   const { slug } = useParams();
+  console.log("problem", data && data.data);
+
+  if(!data || !data.data) return;
+
+  // let problemSet = data && data.data.map((a) => {
+  //   return a.attributes.topics && a.attributes.topics.map((b) => b.slug === slug);
+  // })
+
+  
+
+
+  let problemSet;
+  if(data.data)
+    for(let i = 0; i < data.data.length; i++)
+      if(data.data[i].attributes.topics)
+        for(let j = 0; j < data.data[i].attributes.topics.length; j++)
+          if(data.data[i].attributes.topics[j].slug === slug)
+            problemSet = data.data[i].attributes.topics[j]
 
   return (
     <div className="bg-white font-poppins">
@@ -18,64 +36,7 @@ function ProblemSetPage() {
       <div className="flex justify-center">
         <div className="pb-16 pt-12 gap-10 w-[1024px]">
           <ProblemSetTable
-            problemSet={[
-              {
-                link: "https://infoarena.ro/problema/arbint",
-                name: "Arbori de intervale",
-                source: "Infoarena",
-                sourceLink: "https://infoarena.ro",
-                tags: "Arbori de intervale",
-                badge: "easy",
-              },
-              {
-                link: "https://infoarena.ro/problema/datorii",
-                name: "Datorii",
-                source: "Infoarena",
-                sourceLink: "https://infoarena.ro",
-                tags: "Arbori de intervale",
-                badge: "easy",
-              },
-              {
-                link: "https://www.pbinfo.ro/probleme/2090/actualizare-element-minim-interval",
-                name: "Minim interval",
-                source: "Pbinfo",
-                sourceLink: "https://pbinfo.ro",
-                tags: "Arbori de intervale",
-                badge: "easy",
-              },
-              {
-                link: "https://www.pbinfo.ro/probleme/2094/actualizare-element-cmmdc-interval",
-                name: "CMMDC interval",
-                source: "Pbinfo",
-                sourceLink: "https://pbinfo.ro",
-                tags: "Arbori de intervale",
-                badge: "normal",
-              },
-              {
-                link: "https://www.pbinfo.ro/probleme/2093/actualizare-element-stergere-minim",
-                name: "Stergere minim",
-                source: "Pbinfo",
-                sourceLink: "https://pbinfo.ro",
-                tags: "Arbori de intervale",
-                badge: "normal",
-              },
-              {
-                link: "https://www.pbinfo.ro/probleme/2095/descompunere-in-intervale",
-                name: "Descompunere intervale",
-                source: "Pbinfo",
-                sourceLink: "https://pbinfo.ro",
-                tags: "Arbori de intervale",
-                badge: "normal",
-              },
-              {
-                link: "https://www.infoarena.ro/problema/rest",
-                name: "Rest",
-                source: "Infoarena",
-                sourceLink: "https://infoarena.ro",
-                tags: "Arbori de intervale",
-                badge: "hard",
-              },
-            ]}
+            problemSet={problemSet && problemSet.problemSet}
           />
         </div>
       </div>

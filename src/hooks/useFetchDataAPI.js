@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-function useFetchDataAPI(url1, url2) {
+function useFetchDataAPI(url1, url2, url3) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(null);
@@ -9,6 +9,10 @@ function useFetchDataAPI(url1, url2) {
   const [solutionData, setSolutionData] = useState(null);
   const [solutionError, setSolutionError] = useState(null);
   const [solutionLoading, setSolutionLoading] = useState(null);
+
+  const [categoryData, setCategoryData] = useState(null);
+  const [categoryError, setCategoryError] = useState(null);
+  const [categoryLoading, setCategoryLoading] = useState(null);
 
   useEffect(() => {
     setLoading(true)
@@ -23,7 +27,7 @@ function useFetchDataAPI(url1, url2) {
         setError(true);
       })
 
-      axios.get(url2)
+    axios.get(url2)
       .then((res) => {
         setSolutionData(res.data)
         setSolutionLoading(false);
@@ -33,14 +37,28 @@ function useFetchDataAPI(url1, url2) {
         setSolutionLoading(false);
         setSolutionError(true);
       })
-  }, [url1, url2])
+
+    axios.get(url3)
+      .then((res) => {
+        setCategoryData(res.data)
+        setCategoryLoading(false);
+      })
+      .catch((err) => {
+        console.log(err)
+        setCategoryLoading(false);
+        setCategoryError(true);
+      })
+  }, [url1, url2, url3])
   return {
     loading,
     error,
     data,
     solutionLoading,
     solutionError,
-    solutionData
+    solutionData,
+    categoryData,
+    categoryError,
+    categoryLoading
   };
 }
 

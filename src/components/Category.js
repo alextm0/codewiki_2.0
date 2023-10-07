@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import Rating from "./Rating";
 
 function Category({ category, categoryName, categoryDescription, topics }) {
+  if(!category || !categoryName || !categoryDescription || !topics)
+    return;
+  
   const topicArray = topics.map((topic) => {
     return (
       <div
