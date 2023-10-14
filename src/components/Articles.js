@@ -39,13 +39,14 @@ function Articles({ blogs }) {
                   data-aos="fade-up"
                   data-aos-delay={getDelayTime((index + 1) % 3)}
                 >
+                  {console.log(blog && blog.attributes.articleImage.data[0].attributes.url)}
                   <BlogPost
                     badge={blog.attributes.badge}
                     slug={blog.attributes.slug}
                     title={blog.attributes.title}
                     date={blog.attributes.publishDate}
                     description={blog.attributes.desc}
-                    artImage={blog.attributes.artImage}
+                    articleImage={blog.attributes.articleImage}
                   />
                 </div>
               </Link>
