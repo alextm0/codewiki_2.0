@@ -1,7 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.3c13f07a.css",
-    "main.js": "/static/js/main.30094427.js",
+    "main.css": "/static/css/main.601040d1.css",
+    "main.js": "/static/js/main.36cf581f.js",
+    "static/media/logo.png": "/static/media/logo.380ecda30333fb680722.png",
     "static/media/hero_img_5.svg": "/static/media/hero_img_5.9e22993d6356d01a27833a8e6638664f.svg",
     "static/media/hero_img_11.svg": "/static/media/hero_img_11.a4eab9cca1b12b54d480606f0d790c60.svg",
     "static/media/KaTeX_AMS-Regular.ttf": "/static/media/KaTeX_AMS-Regular.853be92419a6c3766b9a.ttf",
@@ -71,11 +72,11 @@
     "static/media/admitere-icon.svg": "/static/media/admitere-icon.401222eb86cd4c3229a3ad73e792550c.svg",
     "static/media/bacalaureat-icon.svg": "/static/media/bacalaureat-icon.5b9160d2969778bf560e7c130cd5607d.svg",
     "index.html": "/index.html",
-    "main.3c13f07a.css.map": "/static/css/main.3c13f07a.css.map",
-    "main.30094427.js.map": "/static/js/main.30094427.js.map"
+    "main.601040d1.css.map": "/static/css/main.601040d1.css.map",
+    "main.36cf581f.js.map": "/static/js/main.36cf581f.js.map"
   },
   "entrypoints": [
-    "static/css/main.3c13f07a.css",
-    "static/js/main.30094427.js"
+    "static/css/main.601040d1.css",
+    "static/js/main.36cf581f.js"
   ]
 }
