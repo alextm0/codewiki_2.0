@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import "../index.css";
 
 import {
@@ -8,6 +8,7 @@ import {
   ProblemSetTable,
   ResourcesTable,
 } from "../components";
+
 
 import { useParams } from "react-router-dom";
 
@@ -27,22 +28,30 @@ import { useEffect } from "react";
 
 const PUBLIC_URL = 'https://codewiki-blog.onrender.com';
 
-const flatten = (text, child) => {
-  return typeof child === "string"
-    ? text + child
-    : React.Children.toArray(child.props.children).reduce(flatten, text);
+export const slugify = (text) => {
+  return text.toLowerCase().replace(/[^\w]+/g, '-');
 };
 
-export const HeadingRenderer = (props) => {
-  var children = React.Children.toArray(props.children);
-  var text = children.reduce(flatten, "");
-  var slug = text.toLowerCase().replace(/[!?\s]/g, "-");
-  return React.createElement(
-    "h" + props.level,
-    { id: `#/blog/${slug}`, className: "anchor" },
-    props.children
-  );
+export const extractHeadings = (markdown) => {
+  const regex = /(?:^|\n)(#+) ([^\n]+)/g;
+  let match;
+  const headings = [];
+
+  while ((match = regex.exec(markdown)) !== null) {
+    const level = match[1].length;
+    if (level === 1 || level === 2 || level === 3) {
+      headings.push({
+        text: match[2],
+        level: level,
+        id: slugify(match[2])
+      });
+    }
+  }
+
+  return headings;
 };
+
+
 
 function Post({ blogs }) {
   const [readPercentage, setReadPercentage] = useState(0);
@@ -76,13 +85,34 @@ function Post({ blogs }) {
     };
   }, []);
 
-  const customMatchers = { "[?!]": "-" }
-
   const { slug } = useParams();
 
   let blog = "";
   if (blogs.data)
     blog = blogs.data.find((blog) => blog.attributes && blog.attributes.slug === slug);
+
+  let headings = []
+  if (blog.attributes && blog.attributes.blogContent)
+    headings = extractHeadings(blog.attributes.blogContent);
+
+
+
+  const markdownRef = useRef(null);
+  const headingRefs = useRef([]);
+
+  const scrollToHeading = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleHeadingClick = (id) => {
+    const element = markdownRef.current.querySelector(`#${id}`);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <div className="bg-white font-inter">
@@ -176,9 +206,18 @@ function Post({ blogs }) {
                     </code>
                   );
                 },
-                h1: HeadingRenderer,
-                h2: HeadingRenderer,
-                h3: HeadingRenderer,
+                h1: ({ node, children }) => {
+                  const id = slugify(children[0]);
+                  return <h1 id={id}>{children}</h1>;
+                },
+                h2: ({ node, children }) => {
+                  const id = slugify(children[0]);
+                  return <h2 id={id}>{children}</h2>;
+                },
+                h3: ({ node, children }) => {
+                  const id = slugify(children[0]);
+                  return <h2 id={id}>{children}</h2>;
+                },
               }}
             />
           </div>
@@ -194,72 +233,53 @@ function Post({ blogs }) {
           ) : ""}
         </div>
 
-        {/* TABLE OF CONTENTS - DESKTOP */}
-        <div>
-
-          {/* <div className="hidden md:block md:mt-32 md:max-w-[300px]">
-            <div className="text-blue-800 font-bold mb-3">
-              {" "}
-              Recent articles{" "}
-            </div>
-            <div className="flex flex-col gap-1">
-              {blogs.data.map((blog) => {
-                if (blog.attributes && blog.attributes.slug != slug)
-                  return (
-                    <a
-                      className="text-[#565656] hover:text-blue-600 text-[14px]"
-                      href={`https://codewiki.tech/#/blog/${blog.attributes.slug}`}
-                    >
-                      {blog.attributes.title}
-                    </a>
-                  );
-              })}
-            </div>
-          </div> */}
-
-          <div className="toc-navigation">
-            <div className="toc-container hidden md:flex md:flex-col gap-3 md:mt-20">
-              <div className="text-blue-800 font-bold text-[16px]">Table of contents</div>
-              {/* Progress bar */}
-              <div
-                className={`fixed bottom-0 right-0 p-4 ${showRadialProgress ? "block" : "hidden"
-                  }`}
-                style={{ zIndex: 9999 }}
-              >
-                <div className="relative h-16 w-16">
-                  <svg
-                    className="absolute top-0 left-0 h-full w-full transform -rotate-90"
-                    viewBox="0 0 16 16"
-                  >
-                    <circle
-                      className="text-orange-500 stroke-current transition-transform duration-500 ease-in-out"
-                      cx="8"
-                      cy="8"
-                      r="7"
-                      strokeWidth="2"
-                      fill="none"
-                      strokeDasharray="43"
-                      strokeDashoffset={43 - (readPercentage / 100) * 43}
-                    ></circle>
-                  </svg>
-                  <span className="absolute inset-0 flex items-center justify-center text-gray-700 font-bold text-xs">
-                    {Math.round(readPercentage)}%
-                  </span>
-                </div>
+        <div className="toc-navigation">
+          <div className="toc-container hidden md:flex md:flex-col gap-3 md:mt-20">
+            <div className="text-blue-800 font-bold text-[16px]">Table of contents</div>
+            {/* Progress bar */}
+            <div
+              className={`fixed bottom-0 right-0 p-4 ${showRadialProgress ? "block" : "hidden"
+                }`}
+              style={{ zIndex: 9999 }}
+            >
+              <div className="relative h-16 w-16">
+                <svg
+                  className="absolute top-0 left-0 h-full w-full transform -rotate-90"
+                  viewBox="0 0 16 16"
+                >
+                  <circle
+                    className="text-orange-500 stroke-current transition-transform duration-500 ease-in-out"
+                    cx="8"
+                    cy="8"
+                    r="7"
+                    strokeWidth="2"
+                    fill="none"
+                    strokeDasharray="43"
+                    strokeDashoffset={43 - (readPercentage / 100) * 43}
+                  ></circle>
+                </svg>
+                <span className="absolute inset-0 flex items-center justify-center text-gray-700 font-bold text-xs">
+                  {Math.round(readPercentage)}%
+                </span>
               </div>
-
-              <Toc
-                markdownText={blog.attributes && blog.attributes.blogContent}
-                highestHeadingLevel={1}
-                lowestHeadingLevel={3}
-                className="toc"
-                customMatchers={customMatchers}
-              />
             </div>
+
+            {/* Table of Contents section */}
+            {headings.map((heading, index) => (
+              <div
+                className="toc"
+                key={index}
+                onClick={() => scrollToHeading(heading.id)}
+                style={{ marginLeft: heading.level === 3 ? '20px' : '0', cursor: 'pointer', color: '#565656' }}
+              >
+                {heading.text}
+              </div>
+            ))}
           </div>
+
         </div>
       </div>
-    </div>
+    </div >
   );
 }
 

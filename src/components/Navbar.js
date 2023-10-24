@@ -46,7 +46,7 @@ function Navbar() {
         <div className="relative flex items-center justify-between space-x-4 lg:space-x-10 ">
           <div className="flex items-center lg:w-0 lg:flex-1 text-gray-900 font-righteous text-3xl">
             <Link to="/" className="flex items-center">
-              <img src={Logo} alt="logo" className="mr-2" />
+              <img src={Logo} alt="logo" className="mr-2 w-8 h-8" />
               <span className="w-32 h-10 rounded-lg flex justify-center items-center text-white ">
                 {" "}
                 CodeWiki{" "}

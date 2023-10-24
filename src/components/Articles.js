@@ -39,7 +39,6 @@ function Articles({ blogs }) {
                   data-aos="fade-up"
                   data-aos-delay={getDelayTime((index + 1) % 3)}
                 >
-                  {console.log(blog && blog.attributes.articleImage.data[0].attributes.url)}
                   <BlogPost
                     badge={blog.attributes.badge}
                     slug={blog.attributes.slug}

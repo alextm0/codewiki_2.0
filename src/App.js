@@ -8,7 +8,7 @@ import { MainPage, ErrorPage, ArticlePage, AdmiterePage, BacalaureatPage, Olimpi
 
 import useFetch from "./hooks/useFetch";
 import useFetchDataAPI from './hooks/useFetchDataAPI'
-import { Category, Olimpiada } from "./components";
+import { Category, Olimpiada, UseOfTOC } from "./components";
 
 function App() {
   useEffect(() => {
@@ -61,8 +61,6 @@ function App() {
   if (categoryLoading && !storedCategoryData) return <p> Loading </p>;
   if (categoryError) return <p> Error! 3 </p>;
   if (!categoryData && !storedCategoryData) return null;
-
-  console.log("category data", storedCategoryData ? storedCategoryData : "");
 
   return (
     <Routes>
