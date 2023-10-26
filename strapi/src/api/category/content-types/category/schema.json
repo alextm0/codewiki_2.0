@@ -22,9 +22,6 @@
     },
     "topics": {
       "type": "json"
-    },
-    "blogContent": {
-      "type": "richtext"
     }
   }
 }
