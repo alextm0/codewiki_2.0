@@ -27,7 +27,7 @@ function BlogPost({ badge, title, date, description, articleImage }) {
         </a>
 
         <p className="text-gray-600 font-light text-sm mt-2 mb-2 font-montserrat">
-          { description }
+          { description  }
         </p>
 
         <div className='flex items-center'>
