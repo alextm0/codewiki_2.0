@@ -7,16 +7,9 @@ import { ProblemSetTable } from "../components";
 
 function ProblemSetPage( {data} ) {
   const { slug } = useParams();
-  console.log("problem", data && data.data);
+  // console.log("problem", data && data.data);
 
   if(!data || !data.data) return;
-
-  // let problemSet = data && data.data.map((a) => {
-  //   return a.attributes.topics && a.attributes.topics.map((b) => b.slug === slug);
-  // })
-
-  
-
 
   let problemSet;
   if(data.data)

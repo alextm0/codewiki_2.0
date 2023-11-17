@@ -3,7 +3,6 @@ import Rating from "./Rating";
 import Category from "./Category";
 
 function Olimpiada({ data }) {
-  console.log("olimpiada", data && data.data);
   let categoryArray = data ? data.data : [];
 
   let catgArray = categoryArray?.map((category) => (

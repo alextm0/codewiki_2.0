@@ -9,7 +9,6 @@ import {
   ResourcesTable,
 } from "../components";
 
-
 import { useParams } from "react-router-dom";
 
 // MARKDOWN IMPORTS
@@ -26,7 +25,7 @@ import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { useState } from "react";
 import { useEffect } from "react";
 
-const PUBLIC_URL = 'https://codewiki-blog.onrender.com';
+const PUBLIC_URL = process.env.REACT_APP_PUBLIC_URL;
 
 export const slugify = (text) => {
   return text.toLowerCase().replace(/[^\w]+/g, '-');
@@ -50,8 +49,6 @@ export const extractHeadings = (markdown) => {
 
   return headings;
 };
-
-
 
 function Post({ blogs }) {
   const [readPercentage, setReadPercentage] = useState(0);
@@ -95,20 +92,8 @@ function Post({ blogs }) {
   if (blog.attributes && blog.attributes.blogContent)
     headings = extractHeadings(blog.attributes.blogContent);
 
-
-
-  const markdownRef = useRef(null);
-  const headingRefs = useRef([]);
-
   const scrollToHeading = (id) => {
     const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const handleHeadingClick = (id) => {
-    const element = markdownRef.current.querySelector(`#${id}`);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
@@ -229,7 +214,7 @@ function Post({ blogs }) {
             />
           ) : ""}
           {(blog.attributes && blog.attributes.problemSet) ? (
-            <ProblemSetTable problemSet={blog.attributes && blog.attributes.problemSet} />
+            <ProblemSetTable problemSetName={"Practice Problems"} problemSet={blog.attributes && blog.attributes.problemSet} />
           ) : ""}
         </div>
 

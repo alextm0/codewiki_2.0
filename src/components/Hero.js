@@ -1,8 +1,5 @@
 import React from 'react'
 
-// 3,5,6,7,8
-
-// 3,5,6
 import HeroImage from '../assets/hero_img_5.svg' 
 
 import { BsArrowRight } from 'react-icons/bs'

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import "../index.css";
 
 import {
@@ -22,10 +22,6 @@ import "katex/dist/katex.min.css";
 import rehypeRaw from "rehype-raw";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { useState } from "react";
-import { useEffect } from "react";
-
-const PUBLIC_URL = 'https://codewiki-blog.onrender.com';
 
 const flatten = (text, child) => {
   return typeof child === "string"
@@ -45,8 +41,6 @@ export const HeadingRenderer = (props) => {
 };
 
 function SolutieProbleme({ data }) {
-  const customMatchers = { "[?!]": "-" }
-
   const { slug } = useParams();
 
   let sourceCode = "";

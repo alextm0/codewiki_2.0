@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom'
   Navy Blue (#333D79FF)
 */}
 
-function ProblemSetTable({ problemSet }) {
+function ProblemSetTable({ problemSetName, problemSet }) {
   const normalBadge = <span class="inline-flex items-center gap-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-blue-100 text-blue-800">Normal</span>
   const easyBadge = <span class="inline-flex items-center gap-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-green-100 text-green-800">Easy</span>
   const hardBadge = <span class="inline-flex items-center gap-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-red-100 text-red-800">Hard</span>

@@ -6,11 +6,13 @@ import "aos/dist/aos.css";
 
 import { MainPage, ErrorPage, ArticlePage, AdmiterePage, BacalaureatPage, OlimpiadaPage, Post, StartLearningPage, ProblemSetPage, SolutieProbleme } from './pages'
 
-import useFetch from "./hooks/useFetch";
 import useFetchDataAPI from './hooks/useFetchDataAPI'
-import { Category, Olimpiada, UseOfTOC } from "./components";
 
 function App() {
+  const PUBLIC_URL = process.env.REACT_APP_PUBLIC_URL;
+  const SOLUTIONS_URL = process.env.REACT_APP_SOLUTIONS_URL;
+  const CATEGORIES_URL = process.env.REACT_APP_CATEGORIES_URL;
+
   useEffect(() => {
     AOS.init({ once: true });
     AOS.refresh();
@@ -26,11 +28,7 @@ function App() {
 
   const [storedCategoryData, setStoredCategoryData] = useState(
     JSON.parse(localStorage.getItem("strapiSolutionData")) || {}
-  );
-
-  const PUBLIC_URL = 'https://codewiki-blog.onrender.com/api/blogs?populate=*';
-  const SOLUTIONS_URL = 'https://codewiki-blog.onrender.com/api/solutions?populate=*';
-  const CATEGORIES_URL = 'https://codewiki-blog.onrender.com/api/categories?populate=*'
+  );  
 
   let { loading, error, data, solutionLoading, solutionError, solutionData, categoryLoading, categoryError, categoryData } = useFetchDataAPI(PUBLIC_URL, SOLUTIONS_URL, CATEGORIES_URL)
 
@@ -53,7 +51,6 @@ function App() {
   if (error) return <p> Error! 1 </p>;
   if (!data && !storedData) return null;
 
-
   if (solutionLoading && !storedSolutionData) return <p> Loading </p>;
   if (solutionError) return <p> Error! 2 </p>;
   if (!solutionData && !storedSolutionData) return null;
@@ -66,10 +63,6 @@ function App() {
     <Routes>
       <Route
         path="/"
-        element={<MainPage blogs={storedData ? storedData : ""} />}
-      />
-      <Route
-        path="/codewiki_2.0"
         element={<MainPage blogs={storedData ? storedData : ""} />}
       />
 
